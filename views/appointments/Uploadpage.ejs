@@ -1,0 +1,71 @@
+<% layout('layouts/boilerplate')%>
+    <%- include('../partials/header')%>
+        <link rel="stylesheet" href="/css/style.css">
+
+
+        <div style="margin-top:150px; margin-left:300px; width: 50%;">
+
+            <section class="contact" id="contact">
+
+                <div class="container min-vh-90">
+
+                    <div class="row justify-content-center">
+
+                        <h1 class="heading"><span>'</span> make an appointment <span>'</span></h1>
+
+                        <div class="col-md-10" data-aos="flip-down">
+
+                            <% if(!currentUser) {%>
+
+                                <form action="/users" method="post">
+
+                                    <div class="inputBox">
+                                        <select name="appointmentSection" id="appointmentSection">
+                            <option value="blabla" disabled selected>choose a section</option>
+                            
+                        </select>
+
+
+                                        <select name="appointmentDoctor" id="appointmentDoctor">
+                            <option value="ssdasdasdasd" disabled selected>choose a doctor</option>
+                            
+                        </select>
+
+                                        <input type="date" name="appointmentTime" required>
+                                        <input type="time">
+                                    </div>
+
+                                    <textarea name="" id="" cols="30" rows="10" placeholder="message ( optional )"></textarea>
+
+                                    <input type="submit" name="" id="" value="make appointment" class="button">
+
+                                </form>
+                                <% } else { %>
+                                    <form action="/users/<%=user._id%/Uploadpage>" method="post" id="demoForm" class="demoForm">
+
+                                        <label for="myfile">Select a record:</label>
+                                        <input type="file" id="myfile" name="myfile"><br><br>
+                                        <input type="submit">
+                                    </form>
+
+                                    <h3>Uploads Multiple records:</h3>
+                                    <form action="/action_page.php">
+                                        <label for="myfile">Select files:</label>
+                                        <input type="file" id="myfile" name="myfile" multiple><br><br>
+                                        <input type="submit">
+
+                                    </form>
+
+
+                                    <%  } %>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+        </div>
